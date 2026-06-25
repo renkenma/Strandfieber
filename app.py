@@ -9,14 +9,14 @@ if "hinweise_aufgedeckt" not in st.session_state:
     st.session_state.falsche_versuche = 0
 
 HINWEISE = [
-    "Das Event ist draußen – pack am besten Sonnencreme ein.",
-    "Du wirst dabei tanzen – oder zumindest mitwippen.",
-    "Der Name des Events klingt nach einer Krankheit – aber der angenehmen Art.",
-    "Wasser spielt beim Namen eine wichtige Rolle.",
-    "Das Event beginnt mit dem Wort 'Strand'.",
+    "Das Event ist draußen, also Sonnenbrille und Springer-Hut nicht vergessen!",
+    "Das Pokemon-Duo hierzu waren Pikachu und Karnimani.",
+    "Pikachu ist vom Typ Elektro und Karnimani vom Typ Wasser und gut aufgedreht.",
+    "Strandurlaub ist es nicht, aber das Ambiente geht in die richtige Richtung.",
+    "Ab und an geht die Krankheit im Namen mit Schüttelfrost einher, dieses sorgt eher für gute Laune bei guter Musik.",
 ]
 
-SCHLUESSEL_WOERTER = ["strandfieber", "strand fieber", "festival", "strand"]
+SCHLUESSEL_WOERTER = ["strandfieber"]
 
 # ==========================================
 # STARTSEITE
@@ -44,10 +44,9 @@ for i in range(aufgedeckt):
 if st.session_state.erraten:
     st.success("🎉 Richtig geraten!")
     st.markdown("""
-    ### 🏖️ Strandfieber Festival!
+    ### 🏖️ Dein Geschenk: Strandfieber Festival!
 
-    Treibende Beats, Festival-Vibes und gute Laune – das wartet auf dich!
-    Pack die Tanzschuhe und die Sonnenbrille ein. Wir sehen uns auf dem Festival! 🎶☀️
+    Da, wo wir wieder zueinander gefunden haben, wollten wir schon lange wieder hin! Neben GPF kommen ja auch vernünftige Interpreten, allerdings werden wir die auch ansehen! Es ist mal wieder an der Zeit! 😊
     """)
     st.balloons()
 
@@ -57,8 +56,7 @@ if st.session_state.erraten:
 elif st.session_state.loesung_gezeigt:
     st.markdown("### 🏖️ Dein Geschenk: Strandfieber Festival!")
     st.warning("""
-    Treibende Beats, Festival-Vibes und gute Laune – das wartet auf dich!
-    Pack die Tanzschuhe und die Sonnenbrille ein. Wir sehen uns auf dem Festival! 🎶☀️
+    Da, wo wir wieder zueinander gefunden haben, wollten wir schon lange wieder hin! Neben GPF kommen ja auch vernünftige Interpreten, allerdings werden wir die auch ansehen! Es ist mal wieder an der Zeit! 😊
     """)
     st.balloons()
 
@@ -82,9 +80,9 @@ else:
                     st.session_state.erraten = True
                     st.rerun()
                 else:
-                    st.session_state.falsche_versuche += 1
-                    if aufgedeckt < len(HINWEISE):
-                        st.session_state.hinweise_aufgedeckt += 1
+                    #st.session_state.falsche_versuche += 1
+                    #if aufgedeckt < len(HINWEISE):
+                        #st.session_state.hinweise_aufgedeckt += 1
                     st.rerun()
             else:
                 st.warning("Gib erst einen Tipp ein!")
